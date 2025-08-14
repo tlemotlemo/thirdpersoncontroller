@@ -1,0 +1,27 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://cw0vo0t43a4e3"
+path.bptc="res://.godot/imported/test_world.exr-66b772b2d031957a4fec76195fd44fdb.bptc.ctexarray"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://lightmap/test_world.exr"
+dest_files=["res://.godot/imported/test_world.exr-66b772b2d031957a4fec76195fd44fdb.bptc.ctexarray"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=1

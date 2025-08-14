@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://djp8dcw5uo042"]
+
+[ext_resource type="Script" uid="uid://b0yk1ix0hhfnc" path="res://script/character_controller.gd" id="1_2mrwy"]
+[ext_resource type="Script" uid="uid://dj3co176h7fxl" path="res://script/camera_rig.gd" id="2_ryxa1"]
+[ext_resource type="Script" uid="uid://dl1bbq1y0dv55" path="res://script/player_camera.gd" id="3_mal7a"]
+[ext_resource type="Script" uid="uid://itawh5do203c" path="res://script/stamina_bar.gd" id="4_0f72r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1lwx6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gy3sr"]
+
+[node name="CharacterController" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_2mrwy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_1lwx6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+gi_mode = 2
+mesh = SubResource("CapsuleMesh_gy3sr")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_ryxa1")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Node3D"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+spring_length = 2.0
+margin = 0.05
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SpringArm3D"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+script = ExtResource("3_mal7a")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -47.0
+offset_right = 200.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_0f72r")
